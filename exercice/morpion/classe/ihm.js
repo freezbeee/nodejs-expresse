@@ -13,14 +13,19 @@ export class Ihm {
     }
     
     async menu(){
+        console.log("##-----##--########--###---###---##--########--#---#");
+        console.log("###---###--#------#--#--#--#--#--##--#------#--##--#");
+        console.log("##-#-#-##--#------#--###---###---##--#------#--#-#-#");
+        console.log("##--#--##--#------#--##----#-----##--#------#--#--##");
+        console.log("##-----##--########--#-#---#-----##--########--#---#");
         let player = 1
         let endGame = false
         this.afficheTable()
         while(!endGame){
             console.log('choix de le position');
-            let x =  await poserUneQuestion('merci de choisir la ligne : ')
+            let x =  await poserUneQuestion('merci de choisir la ligne joueur ' + player)
             console.log('---------------------------------------------------');
-            let y =  await poserUneQuestion('merci de choisir la colonne : ')
+            let y =  await poserUneQuestion('merci de choisir la colonne joueur ' + player)
             this.mainTable[x-1][y-1]= player 
             if(player===1){
                 player = 2
