@@ -22,16 +22,24 @@ export class Ihm {
         let endGame = false
         this.afficheTable()
         while(!endGame){
+            // let isOk = false
+            // while(!isOk){
             console.log('choix de le position');
             let x =  await poserUneQuestion('merci de choisir la ligne joueur ' + player)
             console.log('---------------------------------------------------');
             let y =  await poserUneQuestion('merci de choisir la colonne joueur ' + player)
-            this.mainTable[x-1][y-1]= player 
-            if(player===1){
-                player = 2
-            } else player =1
-            this.afficheTable()
+            // isOk = this.check(x,y,this.mainTable)
+            // if (!isOk){ console.log("/////position non valid\\\\\\")}
+        // }
+        this.mainTable[x-1][y-1]= player 
+        this.afficheTable()
+        endGame = this.verifEnDGame(this.mainTable)
+        if(endGame){
+            console.log('gg a' + player);
         }
+        if(player===1){
+            player = 2
+        } else player =1}
         
         
         
@@ -58,6 +66,27 @@ export class Ihm {
             console.log(aff);
         }
     
+    }
+    
+    // check(x,y,tableMorpion){
+    //    if (x >= 1 && x <= 3 && y >= 1 && y <= 3 && tableMorpion[x-1][y-1] === 0){
+    //     return true
+    //    } else {
+    //     return fa
+    //    }
+
+
+       
+    //    }
+    verifEnDGame(tab){
+        for(let i = 0; i < tab.length; i++){
+            if(tab[i][0] === tab[i][1] && tab[i][0] === tab[i][2] && tab[i][0]) return true
+            if(tab[0][i] === tab[1][i] && tab[0][i] === tab[2][i] && tab[0][i]) return true
+           
+        }
+        if(tab[0][0] === tab[1][1] && tab[0][0] === tab[2][2] && tab[0][0]) return true
+        if(tab[2][0] === tab[1][1] && tab[2][0] === tab[0][2] && tab[2][0]) return true
+        return false
     }
 }
 
