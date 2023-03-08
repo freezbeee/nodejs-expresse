@@ -1,0 +1,11 @@
+{
+  "name": "demo-init",
+  "version": "1.0.0",
+  "description": "mon premier projet nodejs avec comande init et en rapide node init -y",
+  "main": "essai.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Theo",
+  "license": "ISC"
+}
