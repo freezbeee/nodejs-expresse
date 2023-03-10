@@ -1,11 +1,13 @@
 import express from "express"
 import { AppClient } from "./classes/client/appClient.js"
+import { AppComande } from "./classes/comande/appCommande.js"
 import { AppProduit } from "./classes/produit/appProduit.js"
 
 
 // Un objet pour gérer des client
 const dataserviceClient = new AppClient()
 const dataserviceProduit = new AppProduit()
+const dataServiceCommande = new AppComande()
 
 
 //Notre objet express
@@ -63,6 +65,29 @@ api.get('/produits/:id', (req,res) => {
     }else {
         res.json({message : "produit pas trouvé"})
     }
+})
+
+// commande
+api.post('/commandes', (req,res) => {
+    const {client,produitsListe} = req.body
+    if( client != undefined && produitsListe != undefined ){
+        dataServiceCommande.createcommande(client,produitsListe)
+        res.json({message : "produit ajoutée"})
+    }else {
+        res.json({message : "Merci de transmettre un titre , un prix et un stock"})
+    }
+})
+
+api.get('/commandes/:id', (req,res) => {
+    const commande = dataServiceCommande.findcommandeById(req.params.id)
+    if( commande != undefined){
+        res.json(commande)
+    }else {
+        res.json({message : "commande pas trouvé"})
+    }
+})
+api.get('/commandes', (req,res) => {
+    res.json(dataserviceProduit.commandes)
 })
 
 

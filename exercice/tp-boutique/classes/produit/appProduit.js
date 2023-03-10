@@ -1,5 +1,5 @@
 import { Produit } from "./produit.js"
-import {  readFileSync } from "fs"
+import {  readFileSync, writeFileSync } from "fs"
 
 export class AppProduit {
     constructor() {
@@ -14,7 +14,9 @@ export class AppProduit {
         this.compteur = (this.produits[this.produits.length-1] != undefined) ? this.produits[this.produits.length-1].id : 0
     }
 
-  
+    write(){
+        writeFileSync(this.file, JSON.stringify(this.produits))
+    }
 
 
    

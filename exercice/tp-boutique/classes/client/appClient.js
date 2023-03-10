@@ -1,5 +1,5 @@
 import { Client } from "./client.js"
-import {  readFileSync } from "fs"
+import {  readFileSync, writeFileSync } from "fs"
 
 export class AppClient {
     constructor() {
@@ -14,6 +14,10 @@ export class AppClient {
         this.compteur = (this.clients[this.clients.length-1] != undefined) ? this.clients[this.clients.length-1].id : 0
     }
 
+    write(){
+        writeFileSync(this.file, JSON.stringify(this.clients))
+    }
+
   
 
 
@@ -26,6 +30,7 @@ export class AppClient {
 
     // Méthode recup client par id
     findclientById(id){
+        console.log(this.clients.find(t => t.id == id))
         return this.clients.find(t => t.id == id)
     }
 
