@@ -26,14 +26,14 @@ export class AppComande {
 
 
     //Méthode création commande
-    createcommande(client,produitsListe){
+        createcommande(client,produitsListe){
         console.log(client);
         const clientCherche = new AppClient()
         const trouver = clientCherche.findclientById(parseInt(client))
         console.log(trouver);
-        // console.log(clientCherche)
+        console.log(clientCherche)
         // if(client == clientCherche.findclientById(client) ){
-            console.log("coucou");
+            // console.log("coucou");
             client = clientCherche
             const commande = new Commande(++this.compteur,trouver,produitsListe)
             this.commandes.push(commande)
