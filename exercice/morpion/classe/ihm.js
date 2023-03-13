@@ -22,6 +22,7 @@ export class Ihm {
         console.log("##-----##--########--#-#---#-----##--########--#---#");
         let player = 1
         let endGame = false
+        
         this.afficheTable()
         while(!endGame){
              let isOk = false
@@ -89,6 +90,8 @@ export class Ihm {
         if(tab[0][0] === tab[1][1] && tab[0][0] === tab[2][2] && tab[0][0]) return true
         if(tab[2][0] === tab[1][1] && tab[2][0] === tab[0][2] && tab[2][0]) return true
         return false
+
+        
     }
 }
 
